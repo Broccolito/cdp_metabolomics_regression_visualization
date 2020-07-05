@@ -29,7 +29,7 @@ This visualization uses R shiny and shinydashboard to visualize regressions betw
 - Then, run Github instance by typing in:
 
   ```R
-  runGitHub(repo = "ICHapBlock", username = "Broccolito")
+  runGitHub(repo = "cdp_metabolomics_regression_visualization", username = "Broccolito")
   ```
 
 
