@@ -35,7 +35,7 @@ This visualization uses R shiny and shinydashboard to visualize regressions betw
 
 ### License
 
-MIT
+Any unauthorized use of this program or its deidentified database is currently not allowed. This is currently an internal work with all rights reserved by the Simonson Lab at UCSD School of Medicine.
 
 
 
