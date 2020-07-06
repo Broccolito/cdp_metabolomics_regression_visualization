@@ -31,16 +31,16 @@ suppressWarnings({
     mutate_if(is.factor,as.character)
   met = read.csv("metabolite_master.csv")
   pheno = read.csv("2015_aug_dec_2016_dec.csv")
-  pheno_met = inner_join(pheno,met,by = "id") %>%
+  pheno_met = dplyr::inner_join(pheno,met,by = "id") %>%
     mutate(bmi = weight/(height^2))
-  pheno = select(pheno_met,id,bmi,phenotype_apriori$phenotype)
-  controlled_pheno = select(pheno,id,sex,age,bmi)
-  pheno = select(pheno,-id,-sex,-age,-bmi) %>%
-    mutate_if(is.factor,as.numeric) %>%
+  pheno = dplyr::select(pheno_met,id,bmi,phenotype_apriori$phenotype)
+  controlled_pheno = dplyr::select(pheno,id,sex,age,bmi)
+  pheno = dplyr::select(pheno,-id,-sex,-age,-bmi) %>%
+    dplyr::mutate_if(is.factor,as.numeric) %>%
     cbind.data.frame(controlled_pheno)
-  met = select(pheno,id) %>%
-    left_join(met,by = "id") %>%
-    select(-id)
+  met = dplyr::select(pheno,id) %>%
+    dplyr::left_join(met,by = "id") %>%
+    dplyr::select(-id)
   pheno_met = cbind.data.frame(met,pheno)
   met_names = paste0("M",seq(1,5957))
   pheno_names = phenotype_apriori$phenotype[-(1:2)]
